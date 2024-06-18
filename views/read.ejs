@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>All Users</title>
+    <link rel="stylesheet" href="/stylesheets/styles.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="bg-zinc-900 text-white">
+    <div class="container mx-auto p-10">
+      <nav class="mb-8">
+        <a class="text-blue-500 hover:underline" href="/">Home</a>
+      </nav>
+      <header class="mb-10">
+        <h1 class="text-3xl font-bold tracking-tighter mb-3">All Users</h1>
+      </header>
+      <main>
+        <div class="users flex gap-6 flex-wrap">
+          <% if(users.length === 0) { %>
+            <h3 class="text-zinc-500 text-2xl">No users yet</h3>
+          <% } else { %>
+            <% users.forEach((user) => { %>
+              <div class="user w-80 p-6 bg-zinc-800 rounded-lg shadow-lg">
+                <div class="w-full h-52 rounded-lg bg-zinc-700 overflow-hidden mb-4">
+                  <img class="w-full h-full object-cover object-center" src="<%= user.url %>" alt="User picture">
+                </div>
+                <h3 class="text-xl font-semibold mb-1"><%= user.name %></h3>
+                <p class="text-zinc-500 mb-4"><%= user.email %></p>
+                <div class="flex gap-4 justify-between">
+                  <a class="text-blue-400 hover:underline" href="/edit/<%= user._id %>">Edit</a>
+                  <a class="text-red-500 hover:underline" href="/delete/<%= user._id %>">Delete</a>
+                </div>
+              </div>
+            <% }); %>
+          <% } %>
+        </div>
+      </main>
+    </div>
+  </body>
+</html>

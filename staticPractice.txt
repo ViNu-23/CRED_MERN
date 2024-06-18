@@ -1,0 +1,54 @@
+// -----------static cred operation--------------
+
+// const mongoose=require('mongoose')
+
+// mongoose.connect(`mongodb://127.0.0.1:27017/hello`)
+
+// const userSchema=mongoose.Schema({
+//     name: String,
+//     username: String,
+//     email: String,
+// })
+
+// module.exports = mongoose.model("user",userSchema)
+
+// -----------------------------------------------------------
+
+
+// const express = require("express");
+// const app = express();
+// const userModel = require("./userModel");
+
+// app.get("/", (req, res) => {
+//   res.send("hey,running");
+// });
+
+// app.get("/create", async (req, res) => {
+//   let createdUser = await userModel.create({
+//     name: "vinur",
+//     username: "userVinur",
+//     email: "testvinu@rgmail.com",
+//   });
+//   res.send(createdUser);
+// });
+
+// app.get('/user',async (req, res) => {
+//     let users=await userModel.find();
+//     res.send(users);
+// })
+
+// app.get("/update", async (req, res) => {
+//   let updatedUser = await userModel.findOneAndUpdate(
+//     { username: "userVijay" },
+//     { name: "updated name vijay" },
+//     { new: true }
+//   );
+//   res.send(updatedUser);
+// });
+
+// app.get("/delete", async (req,res)=> {
+//     let deletedUser=await userModel.findOneAndDelete({name: "vinu",})
+//     res.send(deletedUser);
+// })
+
+// app.listen(3000);
